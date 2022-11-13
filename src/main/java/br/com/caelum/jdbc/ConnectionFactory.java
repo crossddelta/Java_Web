@@ -10,15 +10,15 @@ public class ConnectionFactory {
 	private static Connection connection = null;
 	
 	public Connection getConnection() {
-			try {
-				return DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/jdbc", "root", "123456"
-						);
-			}
-			catch (SQLException e) {
-				throw new DbException(e.getMessage());
-			}
+		try{
+			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc","root","123456");
+			
 		}
+		catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
 	
 	public static void closeConnection() {
 		try {

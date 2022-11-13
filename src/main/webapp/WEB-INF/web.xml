@@ -12,19 +12,19 @@
   
   <servlet>
   	<servlet-name>
-  		servletOiMundo
+  		adicionaContatoServlet
   	</servlet-name>
   	<servlet-class>
-  		br.com.caelum.servlet.OiMundo
+  		br.com.caelum.servlet.AdicionaContatoServlet
   	</servlet-class>
   </servlet>
   
   <servlet-mapping>
   	<servlet-name>
-  		servletOiMundo
+  		adicionaContatoServlet
   	</servlet-name>
   	<url-pattern>
-  		/oi
+  		/adiciona-contato
   	</url-pattern>
   </servlet-mapping>
 </web-app>

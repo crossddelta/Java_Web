@@ -12,7 +12,7 @@ public class ConnectionFactory {
 	public Connection getConnection() {
 			try {
 				return DriverManager.getConnection(
-						"jdbc:mysql://localhost/jdbc", "root", "123456"
+						"jdbc:mysql://localhost:3306/jdbc", "root", "123456"
 						);
 			}
 			catch (SQLException e) {

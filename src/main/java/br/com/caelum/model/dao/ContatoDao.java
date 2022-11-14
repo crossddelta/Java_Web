@@ -13,11 +13,18 @@ import java.util.List;
 import br.com.caelum.jdbc.ConnectionFactory;
 import br.com.caelum.jdbc.DbException;
 import br.com.caelum.model.entities.Contato;
+import br.com.caelum.mvc.logica.Logica;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class ContatoDao {	
 	private Connection connection;
 	
 	public ContatoDao() {
+		this.connection = new ConnectionFactory().getConnection();
+	}
+	
+	public ContatoDao(Connection connection) {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 	

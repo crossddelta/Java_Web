@@ -1,13 +1,18 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Listando contatos com Taglib</title>
 </head>
-<body>
+<body >
+<c:import url="cabecalho.jsp"/>
+
 <jsp:useBean id="dao" class="br.com.caelum.model.dao.ContatoDao"/>
 	<table border="1">
 			<tr>
@@ -19,11 +24,22 @@
 		<c:forEach var="contato" items="${dao.lista}" varStatus="id">
 			<tr bgcolor="#${id.count % 2 == 0 ? 'aaee88' : 'ffffff' }">
 				<td>${contato.nome}</td>
-				<td>${contato.email}</td>
+				<td>
+					<c:if test="${not empty contato.email}">
+						<a href="mailto:${contato.email}">${contato.email}</a>
+					</c:if>
+					<c:if test="${empty contato.email}">
+						E-mail não informado
+					</c:if>
+				</td>
 				<td>${contato.endereco}</td>
-				<td>${contato.dataNascimento.time}</td>
+				<td>
+				<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" />
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<c:import url="rodape.jsp"/>
 </body>
 </html>

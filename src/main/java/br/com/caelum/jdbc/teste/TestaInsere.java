@@ -10,9 +10,9 @@ public class TestaInsere {
 	public static void main(String[] args) {
 		Contato contato = new Contato();
 		
-		contato.setNome("Impa");
-		contato.setEmail("impa@email.com.br");
-		contato.setEndereco("Rua Bauzinho, 987");
+		contato.setNome("Nomail");
+		contato.setEmail("");
+		contato.setEndereco("Rua nomail, 111");
 		contato.setDataNascimento(Calendar.getInstance());
 		
 		ContatoDao dao = new ContatoDao();

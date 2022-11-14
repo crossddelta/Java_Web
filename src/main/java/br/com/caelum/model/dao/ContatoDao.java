@@ -100,7 +100,7 @@ public class ContatoDao {
 		
 		try {
 			st = connection.prepareStatement(
-					"DELETE * FROM contatos "
+					"DELETE FROM contatos "
 					+ "WHERE "
 					+ "id = ?;"
 					);
@@ -110,7 +110,7 @@ public class ContatoDao {
 			int rowsAffected = st.executeUpdate();
 			
 			if(rowsAffected > 0) {
-				System.out.println("Deletado com sucesso! "+ rowsAffected +" afetadas.");
+				System.out.println("Deletado com sucesso! "+ rowsAffected +" linha(s) afetada(s).");
 			}
 		}
 		catch(SQLException e) {

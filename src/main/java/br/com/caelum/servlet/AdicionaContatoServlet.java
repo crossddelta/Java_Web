@@ -9,6 +9,7 @@ import java.util.Date;
 
 import br.com.caelum.model.dao.ContatoDao;
 import br.com.caelum.model.entities.Contato;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -49,10 +50,7 @@ public class AdicionaContatoServlet extends HttpServlet{
 		ContatoDao dao = new ContatoDao();
 		dao.adicionaContato(contato);
 		
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Contato " + contato.getNome() + " adicionado com sucesso!");
-		out.println("</body>");
-		out.println("</html>");
+		RequestDispatcher rd = request.getRequestDispatcher("/contato-adicionado.jsp");
+		rd.forward(request,response);
 	}	
 }
